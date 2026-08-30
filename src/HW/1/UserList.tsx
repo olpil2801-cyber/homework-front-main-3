@@ -1,19 +1,17 @@
-import React from 'react';
-
 type AddressType = {
   street: string;
   city: string;
 };
 
 type UserType = {
-  id: number; 
+  id: number;
   name: string;
   age: number;
   address: AddressType;
 };
 
 type UserListPropsType = {
-  users: Array<UserType>; 
+  users: UserType[];
 };
 
 export const UserList = (props: UserListPropsType) => {
