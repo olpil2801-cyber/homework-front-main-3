@@ -17,7 +17,8 @@ export const HW4: React.FC = () => {
   const handleSave = () => {
     const trimmed = currentText.trim();
     if (!trimmed) return;
-    setTexts([trimmed, ...texts]);
+    // Функциональный апдейт защищает от гонок состояния при быстрых кликах/вводе
+    setTexts(prev => [trimmed, ...prev]);
     setCurrentText('');
   };
 
