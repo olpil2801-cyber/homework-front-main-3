@@ -1,28 +1,21 @@
-import React from 'react';
+import { ChangeEvent } from 'react';
 
 type InputPropsType = {
-  value: string;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onEnter?: () => void;
-  id?: string;
-  placeholder?: string;
+  currentText: string;
+  setCurrentText: (value: string) => void;
 };
 
-export const Input: React.FC<InputPropsType> = ({ value, onChange, onEnter, id, placeholder }) => {
-  const onKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === 'Enter') {
-      onEnter?.();
-    }
+export const Input = (props: InputPropsType) => {
+  const onChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
+    props.setCurrentText(event.target.value);
   };
 
   return (
     <input
-      id={id}
+      id={'hw04-input'}
       type="text"
-      value={value}
-      onChange={onChange}
-      onKeyDown={onKeyDown}
-      placeholder={placeholder}
+      value={props.currentText}
+      onChange={onChangeHandler}
     />
   );
 };

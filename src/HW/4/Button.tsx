@@ -1,19 +1,16 @@
-import React from 'react';
-
 type ButtonPropsType = {
   callBack: () => void;
-  name: React.ReactNode;
+  name: string;
 };
 
-export const Button: React.FC<ButtonPropsType> = ({ callBack, name }) => {
-  const callBackHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    callBack();
+export const Button = (props: ButtonPropsType) => {
+  const callBackHandler = () => {
+    props.callBack();
   };
 
   return (
     <button id={'hw04-button'} onClick={callBackHandler}>
-      {name}
+      {props.name}
     </button>
   );
 };
