@@ -45,10 +45,10 @@ export const HW4: React.FC = () => {
         {texts.map((el, index) => {
           return (
             <li
-              key={index}
-              id={`hw04-task-${index}`}
-              className={index % 2 === 0 ? s.chetNechet : ''}
-            >
+        key={index}
+        id={`hw04-task-${index}`}
+        className={index % 2 === 0 ? s.chetNechet : s.nechet}
+>
               {el}
             </li>
           );
